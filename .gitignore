@@ -1,0 +1,7 @@
+.agent/
+.planning/
+.gemini/
+node_modules/
+.DS_Store
+*.log
+orchestration.md

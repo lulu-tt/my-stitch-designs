@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="ko"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>교육시스템 관리자 대시보드</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style type="text/tailwindcss">
+    :root {
+      --primary-blue: #2563eb;
+      --primary-dark: #0f172a;
+      --bg-light: #f8fafc;
+      --border-soft: #e2e8f0;
+    }
+    body {
+      background-color: var(--bg-light);
+      font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+    .sidebar-active {
+      background-color: rgba(255, 255, 255, 0.1);
+      color: #ffffff;
+      font-weight: 600;
+      border-left: 3px solid #60a5fa;
+    }
+    .sidebar-item {
+      color: #94a3b8;
+      transition: all 0.2s ease;
+      border-left: 3px solid transparent;
+    }
+    .sidebar-item:hover {
+      background-color: rgba(255, 255, 255, 0.05);
+      color: #f8fafc;
+    }
+    .card {
+      background: white;
+      border-radius: 16px;
+      border: 1px solid var(--border-soft);
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+    }
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+    }
+    .material-symbols-outlined.filled {
+      font-variation-settings: 'FILL' 1, 'wght' 400;
+    }
+  </style>
+</head>
+<body class="flex h-screen overflow-hidden">
+<aside class="w-[260px] bg-slate-900 flex flex-col hidden md:flex text-slate-300 z-20" data-purpose="sidebar">
+<div class="h-16 flex items-center px-6 border-b border-slate-800">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 bg-blue-500 rounded-lg flex items-center justify-center text-white font-bold">
+<span class="material-symbols-outlined text-[20px]">school</span>
+</div>
+<h1 class="text-lg font-bold text-white tracking-wide">EMS Admin</h1>
+</div>
+</div>
+<nav class="flex-1 py-6 space-y-1 overflow-y-auto">
+<div class="px-4 mb-2 text-xs font-semibold text-slate-500 uppercase tracking-wider">Main Menu</div>
+<a class="sidebar-active flex items-center px-6 py-3" href="#">
+<span class="material-symbols-outlined mr-3 text-[20px]">dashboard</span>
+        대시보드
+      </a>
+<a class="sidebar-item flex items-center px-6 py-3" href="#">
+<span class="material-symbols-outlined mr-3 text-[20px]">menu_book</span>
+        과정 관리
+      </a>
+<a class="sidebar-item flex items-center px-6 py-3" href="#">
+<span class="material-symbols-outlined mr-3 text-[20px]">co_present</span>
+        강사 관리
+      </a>
+<a class="sidebar-item flex items-center px-6 py-3" href="#">
+<span class="material-symbols-outlined mr-3 text-[20px]">group</span>
+        회원 관리
+      </a>
+<a class="sidebar-item flex items-center px-6 py-3" href="#">
+<span class="material-symbols-outlined mr-3 text-[20px]">analytics</span>
+        보고서
+      </a>
+</nav>
+<div class="p-4 border-t border-slate-800 bg-slate-900/50">
+<div class="flex items-center justify-between p-2 rounded-xl bg-slate-800/50 border border-slate-700/50">
+<div class="flex items-center space-x-3">
+<div class="w-10 h-10 bg-gradient-to-tr from-blue-600 to-blue-400 rounded-full flex items-center justify-center text-white font-bold shadow-sm">
+            AD
+          </div>
+<div class="flex flex-col">
+<span class="text-sm font-medium text-white">최고관리자</span>
+<span class="text-[11px] text-slate-400">admin@system.kr</span>
+</div>
+</div>
+<button class="text-slate-400 hover:text-white transition-colors p-1" title="로그아웃">
+<span class="material-symbols-outlined text-[20px]">logout</span>
+</button>
+</div>
+</div>
+</aside>
+<main class="flex-1 flex flex-col min-w-0 bg-slate-50 relative h-full">
+<header class="h-16 bg-white/80 backdrop-blur-md border-b border-slate-200 flex items-center justify-between px-8 z-10 sticky top-0" data-purpose="main-header">
+<h2 class="text-xl font-bold text-slate-800 tracking-tight">대시보드 종합현황</h2>
+<div class="flex items-center gap-5">
+<div class="flex items-center gap-2 text-sm text-slate-500 bg-slate-100 px-3 py-1.5 rounded-full font-medium">
+<span class="material-symbols-outlined text-[18px]">calendar_today</span>
+          2026.03.07 (토)
+        </div>
+<div class="h-5 w-px bg-slate-200"></div>
+<button class="relative text-slate-500 hover:text-blue-600 transition-colors flex items-center justify-center p-1.5 rounded-full hover:bg-blue-50">
+<span class="absolute top-1 right-1.5 w-2 h-2 bg-red-500 border-2 border-white rounded-full"></span>
+<span class="material-symbols-outlined text-[24px]">notifications</span>
+</button>
+<button class="text-slate-500 hover:text-blue-600 transition-colors flex items-center justify-center p-1.5 rounded-full hover:bg-blue-50">
+<span class="material-symbols-outlined text-[24px]">settings</span>
+</button>
+</div>
+</header>
+<section class="flex-1 overflow-y-auto p-8" data-purpose="dashboard-grid">
+<div class="max-w-[1400px] mx-auto space-y-8">
+<div id="section-department-status">
+<div class="flex items-center justify-between mb-4">
+<h3 class="text-lg font-bold text-slate-800 flex items-center gap-2">
+              부서별 운영과정 건수
+              <span class="px-2 py-0.5 bg-slate-100 text-slate-500 rounded text-xs font-medium border border-slate-200">노동교육팀</span>
+</h3>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<div class="card p-6 border-l-[6px] border-l-amber-400">
+<div class="flex items-start justify-between">
+<div>
+<p class="text-sm font-semibold text-slate-500 uppercase tracking-wide">대기 과정</p>
+<div class="mt-2 flex items-baseline gap-1">
+<span class="text-3xl font-bold text-slate-800">30</span>
+<span class="text-sm font-medium text-slate-500">건</span>
+</div>
+</div>
+<div class="w-10 h-10 rounded-full bg-amber-50 flex items-center justify-center text-amber-500">
+<span class="material-symbols-outlined filled">hourglass_empty</span>
+</div>
+</div>
+</div>
+<div class="card p-6 border-l-[6px] border-l-blue-500 ring-1 ring-blue-50 shadow-md">
+<div class="flex items-start justify-between">
+<div>
+<p class="text-sm font-semibold text-blue-600 uppercase tracking-wide">운영중 과정</p>
+<div class="mt-2 flex items-baseline gap-1">
+<span class="text-3xl font-bold text-blue-700">920</span>
+<span class="text-sm font-medium text-blue-500">건</span>
+</div>
+</div>
+<div class="w-10 h-10 rounded-full bg-blue-50 flex items-center justify-center text-blue-600">
+<span class="material-symbols-outlined filled">play_circle</span>
+</div>
+</div>
+</div>
+<div class="card p-6 border-l-[6px] border-l-slate-300">
+<div class="flex items-start justify-between">
+<div>
+<p class="text-sm font-semibold text-slate-500 uppercase tracking-wide">폐강 과정</p>
+<div class="mt-2 flex items-baseline gap-1">
+<span class="text-3xl font-bold text-slate-800">12</span>
+<span class="text-sm font-medium text-slate-500">건</span>
+</div>
+</div>
+<div class="w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center text-slate-500">
+<span class="material-symbols-outlined filled">cancel</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+<div class="card p-6" id="section-training-requests">
+<div class="flex justify-between items-start mb-6">
+<div>
+<h3 class="text-lg font-bold text-slate-800">강사지원교육 접수 건수</h3>
+<p class="text-xs font-medium text-slate-500 mt-1 flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">history</span>
+                  최근 7일 (2026.03.01 ~ 03.07)
+                </p>
+</div>
+<span class="px-2.5 py-1 bg-blue-50 text-blue-600 text-xs font-bold rounded-full border border-blue-100">실시간</span>
+</div>
+<div class="flex flex-col gap-4">
+<div>
+<div class="flex justify-between items-end mb-1">
+<span class="text-sm font-medium text-slate-700">청소년</span>
+<span class="text-lg font-bold text-slate-800">23<span class="text-xs font-normal text-slate-500 ml-1">건</span></span>
+</div>
+<div class="w-full bg-slate-100 h-2.5 rounded-full overflow-hidden">
+<div class="bg-blue-500 h-full rounded-full" style="width: 60%"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between items-end mb-1">
+<span class="text-sm font-medium text-slate-700">사업장</span>
+<span class="text-lg font-bold text-slate-800">15<span class="text-xs font-normal text-slate-500 ml-1">건</span></span>
+</div>
+<div class="w-full bg-slate-100 h-2.5 rounded-full overflow-hidden">
+<div class="bg-indigo-400 h-full rounded-full" style="width: 40%"></div>
+</div>
+</div>
+</div>
+</div>
+<div class="card p-6" id="section-member-activity">
+<div class="flex justify-between items-start mb-6">
+<div>
+<h3 class="text-lg font-bold text-slate-800">회원 활동 동향</h3>
+<p class="text-xs font-medium text-slate-500 mt-1 flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">history</span>
+                  최근 7일 (2026.03.01 ~ 03.07)
+                </p>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-4 h-[104px]">
+<div class="bg-emerald-50/50 border border-emerald-100 rounded-xl p-4 flex items-center justify-between">
+<div>
+<p class="text-sm font-medium text-emerald-800 mb-1">신규 가입</p>
+<p class="text-2xl font-bold text-emerald-600">58<span class="text-sm font-medium text-emerald-600/70 ml-1">명</span></p>
+</div>
+<div class="w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-sm border border-emerald-100 text-emerald-500">
+<span class="material-symbols-outlined text-[28px]">person_add</span>
+</div>
+</div>
+<div class="bg-rose-50/50 border border-rose-100 rounded-xl p-4 flex items-center justify-between">
+<div>
+<p class="text-sm font-medium text-rose-800 mb-1">회원 탈퇴</p>
+<p class="text-2xl font-bold text-rose-600">3<span class="text-sm font-medium text-rose-600/70 ml-1">명</span></p>
+</div>
+<div class="w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-sm border border-rose-100 text-rose-500">
+<span class="material-symbols-outlined text-[28px]">person_remove</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+<div class="card p-6" id="section-instructor-mgmt">
+<div class="flex justify-between items-center mb-6">
+<h3 class="text-lg font-bold text-slate-800 flex items-center gap-2">
+                강사신청 관리
+                <span class="px-2 py-0.5 bg-slate-100 text-slate-500 rounded text-xs font-medium border border-slate-200">2026년 기준</span>
+</h3>
+</div>
+<div class="space-y-4">
+<div class="p-4 rounded-xl border border-slate-100 bg-slate-50 flex items-center justify-between">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 bg-white rounded-lg flex items-center justify-center shadow-sm border border-slate-200 text-slate-600">
+<span class="material-symbols-outlined">corporate_fare</span>
+</div>
+<div>
+<p class="text-sm font-medium text-slate-500">전체 등록 강사</p>
+<p class="text-xl font-bold text-slate-800">7,706<span class="text-sm font-normal text-slate-500 ml-1">명</span></p>
+</div>
+</div>
+<div class="text-right flex flex-col items-end">
+<span class="text-[11px] font-medium text-slate-400 bg-white px-1.5 py-0.5 rounded border border-slate-200 mb-1">전년비</span>
+<span class="text-sm font-bold text-emerald-500 flex items-center">
+<span class="material-symbols-outlined text-[16px]">arrow_upward</span> 4.2%
+                  </span>
+</div>
+</div>
+<div class="p-4 rounded-xl border border-indigo-100 bg-indigo-50/30 flex items-center justify-between">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 bg-white rounded-lg flex items-center justify-center shadow-sm border border-indigo-100 text-indigo-500">
+<span class="material-symbols-outlined filled">stars</span>
+</div>
+<div>
+<p class="text-sm font-medium text-slate-600">강사풀 선정 강사</p>
+<p class="text-xl font-bold text-indigo-700">1,302<span class="text-sm font-normal text-indigo-500 ml-1">명</span></p>
+</div>
+</div>
+<button class="px-4 py-2 bg-white text-indigo-600 border border-indigo-200 text-sm font-bold rounded-lg shadow-sm hover:bg-indigo-50 transition-colors flex items-center gap-1">
+                  명단 보기
+                  <span class="material-symbols-outlined text-[16px]">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+<div class="card p-6" id="section-client-admin-requests">
+<div class="flex justify-between items-start mb-6">
+<div>
+<h3 class="text-lg font-bold text-slate-800">회원사 관리자 권한신청</h3>
+<p class="text-xs font-medium text-slate-500 mt-1 flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">history</span>
+                  최근 7일 (2026.03.01 ~ 03.07)
+                </p>
+</div>
+</div>
+<div class="flex flex-col space-y-4">
+<div class="flex justify-between items-center p-3 px-4 bg-orange-50 rounded-xl border border-orange-100">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-orange-500">new_releases</span>
+<span class="text-orange-800 font-semibold text-sm">금주 신규 신청건</span>
+</div>
+<span class="text-lg font-bold text-orange-600 bg-white px-3 py-1 rounded-full shadow-sm border border-orange-100">3건</span>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div class="p-3 border border-slate-200 rounded-xl flex items-center justify-between bg-white">
+<span class="text-sm font-medium text-slate-600">전체 대기</span>
+<span class="text-lg font-bold text-slate-800">7<span class="text-xs font-normal text-slate-500 ml-1">건</span></span>
+</div>
+<div class="p-3 border border-blue-200 rounded-xl flex items-center justify-between bg-blue-50/50">
+<span class="text-sm font-medium text-blue-700">전체 승인</span>
+<span class="text-lg font-bold text-blue-700">29<span class="text-xs font-normal text-blue-500 ml-1">건</span></span>
+</div>
+</div>
+<button class="w-full py-2.5 bg-slate-800 text-white text-sm font-bold rounded-lg shadow-sm hover:bg-slate-900 transition-colors mt-1 flex items-center justify-center gap-2">
+                신청 목록 확인 및 처리
+                <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+<div class="card overflow-hidden" id="section-course-table">
+<div class="border-b border-slate-200 bg-white px-2 pt-2">
+<div class="flex gap-2">
+<button class="px-6 py-3 text-sm font-medium text-slate-500 hover:text-slate-800 hover:bg-slate-50 rounded-t-lg transition-colors">
+                집합 / 화상 / 블렌디드
+              </button>
+<button class="px-6 py-3 text-sm font-bold text-blue-600 bg-blue-50/50 rounded-t-lg border-b-2 border-blue-600 relative">
+                이러닝
+              </button>
+</div>
+</div>
+<div class="p-3 bg-slate-50 border-b border-slate-200 flex justify-between items-center">
+<div class="flex items-center space-x-4 text-sm font-medium text-slate-600 px-3">
+<button class="flex items-center gap-1 hover:text-blue-600">
+                과정명
+                <span class="material-symbols-outlined text-[16px]">arrow_drop_down</span>
+</button>
+<span class="text-slate-300">|</span>
+<button class="flex items-center gap-1 hover:text-blue-600">
+                교육기간
+                <span class="material-symbols-outlined text-[16px]">unfold_more</span>
+</button>
+</div>
+<div class="flex gap-2 pr-2">
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1.5 text-[18px] text-slate-400">search</span>
+<input class="pl-9 pr-3 py-1.5 text-sm border border-slate-200 rounded-md focus:ring-blue-500 focus:border-blue-500 w-48" placeholder="과정명 검색" type="text"/>
+</div>
+<button class="px-3 py-1.5 border border-slate-200 rounded-md bg-white text-sm font-medium text-slate-600 flex items-center gap-1 hover:bg-slate-50">
+<span class="material-symbols-outlined text-[16px]">filter_list</span>
+                필터
+              </button>
+</div>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse whitespace-nowrap">
+<thead>
+<tr class="bg-white text-[13px] text-slate-500 border-b border-slate-200 uppercase tracking-wide">
+<th class="py-3.5 px-4 font-semibold text-center w-12">No.</th>
+<th class="py-3.5 px-4 font-semibold text-center w-24">구분</th>
+<th class="py-3.5 px-4 font-semibold text-left">과정명</th>
+<th class="py-3.5 px-4 font-semibold text-center w-48">교육기간</th>
+<th class="py-3.5 px-4 font-semibold text-center w-28">수강/수료</th>
+<th class="py-3.5 px-3 font-semibold text-center w-24">승인대기</th>
+<th class="py-3.5 px-3 font-semibold text-center w-24">교육비 미납</th>
+<th class="py-3.5 px-3 font-semibold text-center w-24">환불요청</th>
+<th class="py-3.5 px-3 font-semibold text-center w-36">교육만족도 미응시</th>
+<th class="py-3.5 px-3 font-semibold text-center w-32">학습평가 미응시</th>
+<th class="py-3.5 px-3 font-semibold text-center w-28">과정 질의응답</th>
+</tr>
+</thead>
+<tbody class="text-[13px] text-slate-700 bg-white">
+<tr class="border-b border-slate-100 hover:bg-blue-50/30 transition-colors group">
+<td class="py-4 px-4 text-center text-slate-400 font-medium">1</td>
+<td class="py-4 px-4 text-center"><span class="px-2 py-1 bg-slate-100 text-slate-600 rounded text-xs font-medium">이러닝</span></td>
+<td class="py-4 px-4 font-medium">
+<a class="text-blue-600 hover:text-blue-800 hover:underline underline-offset-2" href="#">교사·청소년상담자용 청소년노동권익지도 ①</a>
+</td>
+<td class="py-4 px-4 text-center text-slate-500">
+                    2026.03.03 ~ 2026.12.31
+                  </td>
+<td class="py-4 px-4 text-center font-medium text-slate-600">3 / 1</td>
+<td class="py-4 px-3 text-center"><a class="text-blue-500 hover:text-blue-700 font-medium" href="#">0</a></td>
+<td class="py-4 px-3 text-center"><a class="text-blue-500 hover:text-blue-700 font-medium" href="#">0</a></td>
+<td class="py-4 px-3 text-center"><a class="text-blue-500 hover:text-blue-700 font-medium" href="#">0</a></td>
+<td class="py-4 px-3 text-center"><a class="text-rose-500 hover:text-rose-700 font-bold bg-rose-50 px-2 py-0.5 rounded" href="#">2</a></td>
+<td class="py-4 px-3 text-center"><a class="text-blue-500 hover:text-blue-700 font-medium" href="#">0</a></td>
+<td class="py-4 px-3 text-center"><a class="text-blue-500 hover:text-blue-700 font-medium" href="#">0</a></td>
+</tr>
+<tr class="border-b border-slate-100 hover:bg-blue-50/30 transition-colors group">
+<td class="py-4 px-4 text-center text-slate-400 font-medium">2</td>
+<td class="py-4 px-4 text-center"><span class="px-2 py-1 bg-slate-100 text-slate-600 rounded text-xs font-medium">이러닝</span></td>
+<td class="py-4 px-4 font-medium">
+<a class="text-blue-600 hover:text-blue-800 hover:underline underline-offset-2" href="#">[민간위탁] 국취 2025 우수사례 이해과정(e)</a>
+</td>
+<td class="py-4 px-4 text-center text-slate-500">
+                    2025.12.29 ~ 2026.10.31
+                  </td>
+<td class="py-4 px-4 text-center font-medium text-slate-600">597 / 577</td>
+<td class="py-4 px-3 text-center"><a class="text-blue-500 hover:text-blue-700 font-medium" href="#">0</a></td>
+<td class="py-4 px-3 text-center"><a class="text-blue-500 hover:text-blue-700 font-medium" href="#">0</a></td>
+<td class="py-4 px-3 text-center"><a class="text-blue-500 hover:text-blue-700 font-medium" href="#">0</a></td>
+<td class="py-4 px-3 text-center"><a class="text-blue-500 hover:text-blue-700 font-medium" href="#">0</a></td>
+<td class="py-4 px-3 text-center"><a class="text-blue-500 hover:text-blue-700 font-medium" href="#">0</a></td>
+<td class="py-4 px-3 text-center"><a class="text-blue-500 hover:text-blue-700 font-medium" href="#">0</a></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="p-4 border-t border-slate-100 flex items-center justify-between bg-white">
+<span class="text-sm text-slate-500">총 2건의 결과가 있습니다.</span>
+<div class="flex items-center space-x-1">
+<button class="w-8 h-8 flex items-center justify-center rounded border border-slate-200 text-slate-400 cursor-not-allowed">
+<span class="material-symbols-outlined text-[18px]">chevron_left</span>
+</button>
+<button class="w-8 h-8 flex items-center justify-center rounded bg-blue-50 text-blue-600 font-bold border border-blue-100">1</button>
+<button class="w-8 h-8 flex items-center justify-center rounded border border-slate-200 text-slate-400 cursor-not-allowed">
+<span class="material-symbols-outlined text-[18px]">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+
+</body></html>

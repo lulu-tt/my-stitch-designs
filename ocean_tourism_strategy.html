@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>해양관광포털 운영 전략</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL,GRAD,opsz@300,0,0,24" rel="stylesheet" />
+    <style>
+        @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+        @import url('https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap');
+        
+        body { font-family: 'Pretendard', sans-serif; background-color: #f1f5f9; }
+        .handwriting { font-family: 'Nanum Pen Script', cursive; }
+        
+        .glass-card {
+            background: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.05); border: 1px solid rgba(255, 255, 255, 0.5);
+        }
+
+        /* Animations */
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes pulseSoft {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+        }
+        .animate-fade-up {
+            animation: fadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            opacity: 0;
+        }
+        .animate-pulse-soft {
+            animation: pulseSoft 3s ease-in-out infinite;
+        }
+        
+        .delay-100 { animation-delay: 100ms; }
+        .delay-200 { animation-delay: 200ms; }
+        .delay-300 { animation-delay: 300ms; }
+        .delay-400 { animation-delay: 400ms; }
+        .delay-500 { animation-delay: 500ms; }
+    </style>
+</head>
+<body class="min-h-screen p-6 md:p-12 text-slate-800 flex items-center justify-center">
+
+<div class="max-w-[1200px] w-full space-y-10 animate-fade-up">
+    <!-- Header -->
+    <header class="text-center space-y-4">
+        <p class="text-slate-500 font-semibold tracking-wide text-sm md:text-base">어촌관광 활성화를 위한 서비스 품질개선 및 안정적인 운영·유지관리 업무 이행</p>
+        <h1 class="text-3xl md:text-5xl font-extrabold tracking-tight text-slate-900 leading-snug">
+            해양관광포털의 <span class="text-blue-600 border-b-4 border-blue-600 pb-1">안정적 시스템 운영</span>을 통한 <span class="text-blue-500">어촌 지역경제 활성화</span> 도모
+        </h1>
+    </header>
+
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        
+        <!-- 왼쪽 영역: 운영 및 유지보수 수행 방향 -->
+        <div class="lg:col-span-2 space-y-6">
+            <div class="bg-teal-500 text-white rounded-t-[2rem] p-5 text-center shadow-lg">
+                <h2 class="text-2xl font-bold tracking-wide">운영 및 유지보수 수행 방향</h2>
+            </div>
+            
+            <div class="glass-card rounded-b-[2rem] p-8 space-y-12 border-t-0 -mt-6 pt-10">
+                
+                <!-- 추진 목표 -->
+                <div class="flex items-center gap-6 animate-fade-up delay-100">
+                    <div class="w-16 md:w-20 text-center font-bold text-slate-400 border-l-4 border-teal-500 pl-2 text-sm md:text-base">추진<br>목표</div>
+                    <div class="flex-1 text-center relative pr-4">
+                        <div class="absolute -left-6 top-1/2 -translate-y-1/2 w-full h-[1px] bg-slate-200 -z-10"></div>
+                        <h3 class="text-4xl md:text-5xl handwriting text-rose-500 font-semibold tracking-wider inline-block bg-white px-6 py-2 rounded-full shadow-sm animate-pulse-soft">
+                            " 안정적 운영 및 품질제고로 어촌경제 활성화 "
+                        </h3>
+                    </div>
+                </div>
+
+                <!-- 화살표 (장식용) -->
+                <div class="flex justify-center text-slate-300">
+                    <span class="material-symbols-outlined text-4xl">keyboard_double_arrow_down</span>
+                </div>
+
+                <!-- 추진 방향 -->
+                <div class="flex items-center gap-6 animate-fade-up delay-200">
+                    <div class="w-16 md:w-20 text-center font-bold text-slate-400 border-l-4 border-blue-500 pl-2 text-sm md:text-base">추진<br>방향</div>
+                    <div class="flex-1 grid grid-cols-1 md:grid-cols-3 gap-4">
+                        <div class="bg-gradient-to-br from-blue-500 to-blue-600 text-white p-6 rounded-2xl text-center shadow-md hover:-translate-y-1 hover:shadow-xl transition-all cursor-pointer">
+                            <span class="material-symbols-outlined block mb-3 text-4xl text-blue-100">sentiment_very_satisfied</span>
+                            <span class="font-bold text-lg">이용자 만족도 제고</span>
+                        </div>
+                        <div class="bg-gradient-to-br from-blue-600 to-blue-700 text-white p-6 rounded-2xl text-center shadow-md hover:-translate-y-1 hover:shadow-xl transition-all cursor-pointer">
+                            <span class="material-symbols-outlined block mb-3 text-4xl text-blue-100">moving</span>
+                            <span class="font-bold text-lg">운영 효율성 강화</span>
+                        </div>
+                        <div class="bg-gradient-to-br from-blue-700 to-blue-800 text-white p-6 rounded-2xl text-center shadow-md hover:-translate-y-1 hover:shadow-xl transition-all cursor-pointer">
+                            <span class="material-symbols-outlined block mb-3 text-4xl text-blue-100">health_and_safety</span>
+                            <span class="font-bold text-lg">시스템 안정성 확보</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 화살표 (장식용) -->
+                <div class="flex justify-center text-slate-300">
+                    <span class="material-symbols-outlined text-4xl">keyboard_double_arrow_down</span>
+                </div>
+
+                <!-- 배경 및 필요성 -->
+                <div class="flex items-start gap-6 animate-fade-up delay-300">
+                    <div class="w-16 md:w-20 text-center font-bold text-slate-400 border-l-4 border-slate-400 pl-2 mt-2 text-sm md:text-base">배경 및<br>필요성</div>
+                    <div class="flex-1 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                        <div class="bg-slate-100/50 p-5 rounded-xl border border-slate-200 text-[13px] md:text-sm leading-relaxed text-slate-600 hover:bg-white hover:border-blue-200 transition-colors">
+                            <span class="block w-2 h-2 bg-slate-400 rounded-full mb-2"></span>
+                            해양관광포털 서비스의 <b>안정적 운영과 지속적 품질관리</b>가 필수적임
+                        </div>
+                        <div class="bg-slate-100/50 p-5 rounded-xl border border-slate-200 text-[13px] md:text-sm leading-relaxed text-slate-600 hover:bg-white hover:border-blue-200 transition-colors">
+                            <span class="block w-2 h-2 bg-slate-400 rounded-full mb-2"></span>
+                            어촌체험 휴양마을 홈페이지 활성화를 위한 <b>체계적 지원관리</b> 강화 필요
+                        </div>
+                        <div class="bg-slate-100/50 p-5 rounded-xl border border-slate-200 text-[13px] md:text-sm leading-relaxed text-slate-600 hover:bg-white hover:border-blue-200 transition-colors">
+                            <span class="block w-2 h-2 bg-slate-400 rounded-full mb-2"></span>
+                            서비스 품질개선과 <b>민원 대응의 신속성 확보</b>가 요구됨
+                        </div>
+                        <div class="bg-slate-100/50 p-5 rounded-xl border border-slate-200 text-[13px] md:text-sm leading-relaxed text-slate-600 hover:bg-white hover:border-blue-200 transition-colors">
+                            <span class="block w-2 h-2 bg-slate-400 rounded-full mb-2"></span>
+                            고객경험 증진을 위한 <b>편의기능, 고객관계 증진</b>을 위한 리워드
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- 오른쪽 영역: 사업 배경 및 시사점 -->
+        <div class="space-y-6 flex flex-col h-full animate-fade-up delay-400">
+            <div class="bg-blue-500 text-white rounded-t-[2rem] p-5 text-center shadow-lg">
+                <h2 class="text-2xl font-bold tracking-wide">사업 배경 및 시사점</h2>
+            </div>
+            
+            <div class="glass-card rounded-b-[2rem] p-6 border-t-0 -mt-6 pt-10 flex-1 flex flex-row items-center justify-between relative">
+                
+                <!-- Connection Line -->
+                <div class="absolute inset-y-10 right-28 w-12 border-r-2 border-y-2 border-slate-200 rounded-r-[3rem] -z-10 opacity-60"></div>
+
+                <div class="flex-1 space-y-4 pr-6">
+                    <div class="p-4 bg-sky-50 rounded-xl text-[15px] font-bold text-sky-800 shadow-sm border border-sky-100 flex items-center gap-3 hover:-translate-x-1 transition-transform">
+                        운영 안정성 확보
+                    </div>
+                    <div class="p-4 bg-sky-50 rounded-xl text-[15px] font-bold text-sky-800 shadow-sm border border-sky-100 flex items-center gap-3 hover:-translate-x-1 transition-transform">
+                        품질관리 체계 강화
+                    </div>
+                    <div class="p-4 bg-sky-50 rounded-xl text-[15px] font-bold text-sky-800 shadow-sm border border-sky-100 flex items-center gap-3 hover:-translate-x-1 transition-transform">
+                        이용자 중심 서비스
+                    </div>
+                    <div class="p-4 bg-sky-50 rounded-xl text-[14px] font-bold text-sky-800 shadow-sm border border-sky-100 flex items-center gap-3 hover:-translate-x-1 transition-transform">
+                        상시적 유지보수 및 안정적 장애 예방의 필요성 증대
+                    </div>
+                </div>
+                
+                <div class="w-32 md:w-40 flex flex-col justify-center gap-8 z-10">
+                    <div class="aspect-square rounded-full bg-gradient-to-br from-teal-400 to-cyan-500 flex flex-col items-center justify-center text-center text-white font-bold p-3 shadow-xl hover:scale-105 transition-transform cursor-pointer border-4 border-white">
+                        <span class="text-sm md:text-base font-extrabold pb-1 border-b border-teal-200 mb-1">고객경험가치</span>
+                        <span class="text-xl md:text-2xl">증진</span>
+                    </div>
+                    <div class="aspect-square rounded-full bg-gradient-to-br from-cyan-400 to-blue-500 flex flex-col items-center justify-center text-center text-white font-bold p-3 shadow-xl hover:scale-105 transition-transform cursor-pointer border-4 border-white">
+                        <span class="text-sm md:text-base font-extrabold pb-1 border-b border-blue-200 mb-1">운영효율성</span>
+                        <span class="text-xl md:text-2xl">강화</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 하단: 본 사업 성공 Keyword -->
+    <div class="bg-[#59783D] rounded-2xl py-4 px-8 flex flex-col md:flex-row items-center justify-between shadow-xl animate-fade-up delay-500 text-white mt-8 border border-[#6b8c4d]">
+        <div class="flex items-center gap-3 mb-4 md:mb-0">
+            <h2 class="text-2xl md:text-3xl font-bold tracking-wider text-[#e6f2bc]">본 사업 성공 <span class="text-yellow-300">Keyword</span></h2>
+        </div>
+        <div class="flex flex-col sm:flex-row gap-6 md:gap-12">
+            <div class="flex items-center gap-2">
+                <span class="text-[#a4c979] font-black italic text-2xl">01</span>
+                <span class="font-bold text-xl tracking-wide">안정적 운영</span>
+            </div>
+            <div class="flex items-center gap-2">
+                <span class="text-[#a4c979] font-black italic text-2xl">02</span>
+                <span class="font-bold text-xl tracking-wide">체계적 품질관리</span>
+            </div>
+            <div class="flex items-center gap-2">
+                <span class="text-[#a4c979] font-black italic text-2xl">03</span>
+                <span class="font-bold text-xl tracking-wide">이용자 만족도 제고</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
