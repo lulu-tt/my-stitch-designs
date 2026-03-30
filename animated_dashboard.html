@@ -93,6 +93,21 @@
     .delay-600 { animation-delay: 600ms; }
     .delay-700 { animation-delay: 700ms; }
     .delay-800 { animation-delay: 800ms; }
+
+    /* Custom Scrollbar */
+    .custom-scrollbar::-webkit-scrollbar {
+      width: 6px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+      background: #e2e8f0;
+      border-radius: 10px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+      background: #cbd5e1;
+    }
   </style>
 </head>
 <body class="flex h-screen overflow-hidden">
@@ -297,7 +312,7 @@
                     <button class="text-slate-400 hover:text-slate-600 transition-colors">원외(20)</button>
                 </div>
             </div>
-            <div class="p-4 space-y-3 bg-slate-50/30 overflow-y-auto max-h-[520px] custom-scrollbar">
+            <div class="p-4 space-y-3 bg-slate-50/30 overflow-y-auto max-h-[400px] custom-scrollbar">
                 <!-- 아이템 1 -->
                 <div class="p-4 bg-white rounded-xl border border-slate-100 shadow-sm hover:border-blue-200 transition-all group">
                     <div class="flex justify-between items-start">
@@ -340,12 +355,23 @@
                         </div>
                     </div>
                 </div>
-                <!-- 스크롤 테스트용 더미 데이터 -->
-                <div class="p-4 bg-white/50 rounded-xl border border-dashed border-slate-200 transition-all group">
+                <!-- 추가 아이템 1 -->
+                <div class="p-4 bg-white rounded-xl border border-slate-100 shadow-sm hover:border-blue-200 transition-all group">
                     <div class="flex justify-between items-start">
                         <div class="space-y-1">
-                            <h4 class="font-bold text-slate-400 transition-colors">제4기 노사상생협력 실무자 과정 (추가 예정)</h4>
-                            <p class="text-xs text-slate-300 font-medium">26.03.28 ~ 26.03.30</p>
+                            <h4 class="font-bold text-slate-800 group-hover:text-blue-600 transition-colors">제5기 노사파트너십 구축 교육과정</h4>
+                            <p class="text-xs text-slate-400 font-medium">26.04.05 ~ 26.04.09</p>
+                            <p class="text-xs text-slate-500">노동행정교육팀(강신우 / 한국고용노동교육원)</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- 추가 아이템 2 -->
+                <div class="p-4 bg-white rounded-xl border border-slate-100 shadow-sm hover:border-blue-200 transition-all group">
+                    <div class="flex justify-between items-start">
+                        <div class="space-y-1">
+                            <h4 class="font-bold text-slate-800 group-hover:text-blue-600 transition-colors">중대재해처벌법 대응 실무 전문가 과정</h4>
+                            <p class="text-xs text-slate-400 font-medium">26.04.12 ~ 26.04.14</p>
+                            <p class="text-xs text-slate-500">산업안전팀(이진아 / 서울교육센터)</p>
                         </div>
                     </div>
                 </div>
@@ -363,7 +389,7 @@
                     <button class="text-slate-400 hover:text-slate-600 transition-colors">원외(32)</button>
                 </div>
             </div>
-            <div class="p-4 space-y-3 bg-slate-50/30 overflow-y-auto max-h-[520px] custom-scrollbar">
+            <div class="p-4 space-y-3 bg-slate-50/30 overflow-y-auto max-h-[400px] custom-scrollbar">
                 <!-- 강사 아이템 1 -->
                 <div class="p-4 bg-white rounded-xl border border-slate-100 shadow-sm hover:border-blue-200 transition-all group">
                     <div class="flex justify-between items-center">
@@ -421,9 +447,35 @@
                         </div>
                     </div>
                 </div>
-                <!-- 스크롤 테스트용 더미 데이터 -->
-                <div class="p-4 bg-white/50 rounded-xl border border-dashed border-slate-200 transition-all group h-20 flex items-center justify-center">
-                    <p class="text-xs text-slate-300 font-medium">강사 추가 시 스크롤 활성화</p>
+                <!-- 추가 강사 1 -->
+                <div class="p-4 bg-white rounded-xl border border-slate-100 shadow-sm hover:border-blue-200 transition-all group">
+                    <div class="flex justify-between items-center">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 bg-slate-100 rounded-lg flex items-center justify-center text-slate-400 group-hover:bg-blue-50 group-hover:text-blue-500 transition-colors">
+                                <span class="material-symbols-outlined">person</span>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-slate-800">이명호 책임연구원</h4>
+                                <p class="text-[11px] text-slate-400">한국고용노동교육원 기획조정실</p>
+                                <p class="text-[10px] text-blue-500 font-medium">과정별 정책변화 대응 전술 교육</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- 추가 강사 2 -->
+                <div class="p-4 bg-white rounded-xl border border-slate-100 shadow-sm hover:border-blue-200 transition-all group">
+                    <div class="flex justify-between items-center">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 bg-slate-100 rounded-lg flex items-center justify-center text-slate-400 group-hover:bg-blue-50 group-hover:text-blue-500 transition-colors">
+                                <span class="material-symbols-outlined">person</span>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-slate-800">박지수 선임연구원</h4>
+                                <p class="text-[11px] text-slate-400">한국고용노동교육원 교육본부</p>
+                                <p class="text-[10px] text-blue-500 font-medium">디지털 노동시장 변화와 교육 대응</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
