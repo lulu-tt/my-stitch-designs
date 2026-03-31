@@ -195,7 +195,7 @@
                 </div>
             </div>
             <div class="grid grid-cols-2 gap-4">
-                <div class="bg-emerald-50/50 border border-emerald-100 rounded-xl p-4 flex items-center justify-between hover:bg-emerald-50 transition-all cursor-pointer group">
+                <div class="bg-emerald-50/50 border border-emerald-100 rounded-xl p-4 flex items-center justify-between hover:bg-emerald-50 transition-all cursor-pointer group status-card" onclick="openDetailTable('수강신청 상세 내역')">
                     <div>
                         <p class="text-sm font-medium text-emerald-800 mb-1">수강신청</p>
                         <p class="text-2xl font-bold text-emerald-600 group-hover:scale-110 transition-transform">58<span class="text-sm font-medium text-emerald-600/70 ml-1">명</span></p>
@@ -204,7 +204,7 @@
                         <span class="material-symbols-outlined text-[28px] filled">person_add</span>
                     </div>
                 </div>
-                <div class="bg-rose-50/50 border border-rose-100 rounded-xl p-4 flex items-center justify-between hover:bg-rose-50 transition-all cursor-pointer group">
+                <div class="bg-rose-50/50 border border-rose-100 rounded-xl p-4 flex items-center justify-between hover:bg-rose-50 transition-all cursor-pointer group status-card" onclick="openDetailTable('수강취소 상세 내역')">
                     <div>
                         <p class="text-sm font-medium text-rose-800 mb-1">수강취소</p>
                         <p class="text-2xl font-bold text-rose-600 group-hover:scale-110 transition-transform">3<span class="text-sm font-medium text-rose-600/70 ml-1">명</span></p>
@@ -228,7 +228,7 @@
                 </div>
             </div>
             <div class="grid grid-cols-3 gap-4">
-                <div class="p-4 border border-slate-200 rounded-xl bg-slate-50 hover:bg-white hover:border-blue-200 transition-all cursor-pointer group relative overflow-hidden">
+                <div class="p-4 border border-slate-200 rounded-xl bg-slate-50 hover:bg-white hover:border-blue-200 transition-all cursor-pointer group relative overflow-hidden status-card" onclick="openDetailTable('교육문의 상세 내역')">
                     <div class="flex flex-col">
                         <p class="text-sm font-medium text-slate-500 mb-1">교육문의</p>
                         <p class="text-xl font-bold text-slate-800 group-hover:text-blue-600">27<span class="text-xs font-normal text-slate-500 ml-1">건</span></p>
@@ -237,7 +237,7 @@
                         <span class="material-symbols-outlined text-[56px]">contact_support</span>
                     </div>
                 </div>
-                <div class="p-4 border border-slate-200 rounded-xl bg-slate-50 hover:bg-white hover:border-blue-200 transition-all cursor-pointer group relative overflow-hidden">
+                <div class="p-4 border border-slate-200 rounded-xl bg-slate-50 hover:bg-white hover:border-blue-200 transition-all cursor-pointer group relative overflow-hidden status-card" onclick="openDetailTable('외출외박 상세 내역')">
                     <div class="flex flex-col">
                         <p class="text-sm font-medium text-slate-500 mb-1">외출외박</p>
                         <p class="text-xl font-bold text-slate-800 group-hover:text-indigo-600">27<span class="text-xs font-normal text-slate-500 ml-1">건</span></p>
@@ -246,7 +246,7 @@
                         <span class="material-symbols-outlined text-[56px]">logout</span>
                     </div>
                 </div>
-                <div class="p-4 border border-slate-200 rounded-xl bg-slate-50 hover:bg-white hover:border-blue-200 transition-all cursor-pointer group relative overflow-hidden">
+                <div class="p-4 border border-slate-200 rounded-xl bg-slate-50 hover:bg-white hover:border-blue-200 transition-all cursor-pointer group relative overflow-hidden status-card" onclick="openDetailTable('성적이의 상세 내역')">
                     <div class="flex flex-col">
                         <p class="text-sm font-medium text-slate-500 mb-1">성적이의</p>
                         <p class="text-xl font-bold text-slate-800 group-hover:text-rose-600">10<span class="text-xs font-normal text-slate-500 ml-1">건</span></p>
@@ -481,8 +481,14 @@
         </div>
     </div>
     <!-- 최하단 테이블: 상세 현황 -->
-    <div class="card overflow-hidden animate-slide-up delay-600">
-        <div class="px-6 pt-6 border-b border-slate-100 bg-white">
+    <div id="detail-table-card" class="card overflow-hidden opacity-0 translate-y-10 transition-all duration-700 hidden">
+        <div class="px-6 py-4 border-b border-slate-100 bg-white flex justify-between items-center">
+            <h3 id="detail-table-title" class="text-base font-bold text-slate-800">상세 내역</h3>
+            <button onclick="closeDetailTable()" class="p-1 hover:bg-slate-100 rounded-full transition-colors text-slate-400 hover:text-slate-600">
+                <span class="material-symbols-outlined text-[20px]">close</span>
+            </button>
+        </div>
+        <div class="px-6 pt-2 border-b border-slate-100 bg-white">
             <div class="flex items-center gap-8 text-sm font-bold">
                 <button class="text-slate-400 hover:text-slate-600 transition-colors pb-4 border-b-2 border-transparent">집합 / 화상 / 블렌디드</button>
                 <button class="text-blue-600 border-b-2 border-blue-600 pb-4">이러닝</button>
@@ -604,5 +610,35 @@
       });
     }, 800);
   });
+
+  function openDetailTable(title) {
+    const card = document.getElementById('detail-table-card');
+    const tableTitle = document.getElementById('detail-table-title');
+    
+    if (tableTitle) tableTitle.innerText = title;
+    
+    card.classList.remove('hidden');
+    
+    // Force reflow for animation
+    void card.offsetWidth;
+    
+    card.classList.remove('opacity-0', 'translate-y-10');
+    card.classList.add('opacity-100', 'translate-y-0');
+    
+    // Smooth scroll to card
+    setTimeout(() => {
+        card.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 100);
+  }
+
+  function closeDetailTable() {
+    const card = document.getElementById('detail-table-card');
+    card.classList.add('opacity-0', 'translate-y-10');
+    card.classList.remove('opacity-100', 'translate-y-0');
+    
+    setTimeout(() => {
+        card.classList.add('hidden');
+    }, 700);
+  }
 </script>
 </body></html>
