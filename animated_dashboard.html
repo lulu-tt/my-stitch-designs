@@ -188,13 +188,9 @@
             <div class="flex justify-between items-start mb-6">
                 <div>
                     <h3 class="text-lg font-bold text-slate-800">수강신청 및 취소현황</h3>
-                    <p class="text-xs font-medium text-slate-500 mt-1 flex items-center gap-1">
-                        <span class="material-symbols-outlined text-[14px]">history</span>
-                        최근 7일 (2026.03.01 ~ 03.07)
-                    </p>
                 </div>
             </div>
-            <div class="grid grid-cols-2 gap-4">
+            <div class="grid grid-cols-3 gap-4">
                 <div class="bg-emerald-50/50 border border-emerald-100 rounded-xl p-4 flex items-center justify-between hover:bg-emerald-50 transition-all cursor-pointer group status-card" onclick="openDetailTable('수강신청 상세 내역')">
                     <div>
                         <p class="text-sm font-medium text-emerald-800 mb-1">수강신청</p>
@@ -213,6 +209,15 @@
                         <span class="material-symbols-outlined text-[28px]">person_remove</span>
                     </div>
                 </div>
+                <div class="bg-indigo-50/50 border border-indigo-100 rounded-xl p-4 flex items-center justify-between hover:bg-indigo-50 transition-all cursor-pointer group status-card" onclick="openDetailTable('수료처리 상세 내역')">
+                    <div>
+                        <p class="text-sm font-medium text-indigo-800 mb-1">수료처리</p>
+                        <p class="text-2xl font-bold text-indigo-600 group-hover:scale-110 transition-transform">10<span class="text-sm font-medium text-indigo-600/70 ml-1">명</span></p>
+                    </div>
+                    <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-sm border border-indigo-100 text-indigo-500">
+                        <span class="material-symbols-outlined text-[28px] filled">school</span>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -221,10 +226,6 @@
             <div class="flex justify-between items-start mb-6">
                 <div>
                     <h3 class="text-lg font-bold text-slate-800">강의운영관리</h3>
-                    <p class="text-xs font-medium text-slate-500 mt-1 flex items-center gap-1">
-                        <span class="material-symbols-outlined text-[14px]">history</span>
-                        최근 7일 (2026.03.01 ~ 03.07)
-                    </p>
                 </div>
             </div>
             <div class="grid grid-cols-3 gap-4">
@@ -264,26 +265,26 @@
         <div class="card p-5 flex items-center justify-between group hover:border-blue-200 transition-colors">
             <div class="flex items-center gap-4">
                 <div class="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center text-blue-500 group-hover:bg-blue-600 group-hover:text-white transition-all">
-                    <span class="material-symbols-outlined text-[28px]">groups_3</span>
+                    <span class="material-symbols-outlined text-[28px]">child_care</span>
                 </div>
                 <div>
-                    <p class="text-sm font-semibold text-slate-500 mb-0.5">전체등록강사</p>
-                    <p class="text-2xl font-bold text-slate-800 group-hover:scale-105 origin-left transition-transform">7,706<span class="text-sm font-medium text-slate-500 ml-1">명</span></p>
+                    <p class="text-sm font-semibold text-slate-500 mb-0.5">청소년지원교육</p>
+                    <p class="text-2xl font-bold text-slate-800 group-hover:scale-105 origin-left transition-transform">12<span class="text-sm font-medium text-slate-500 ml-1">건</span></p>
                 </div>
             </div>
-            <button class="px-3 py-1.5 bg-white text-slate-600 text-xs font-bold rounded border border-slate-200 hover:bg-slate-800 hover:text-white transition-all shadow-sm">명단보기 ></button>
+            <button class="px-3 py-1.5 bg-white text-slate-600 text-xs font-bold rounded border border-slate-200 hover:bg-slate-800 hover:text-white transition-all shadow-sm">현황보기 ></button>
         </div>
         <div class="card p-5 flex items-center justify-between group hover:border-emerald-200 transition-colors">
             <div class="flex items-center gap-4">
                 <div class="w-12 h-12 bg-emerald-50 rounded-xl flex items-center justify-center text-emerald-500 group-hover:bg-emerald-600 group-hover:text-white transition-all">
-                    <span class="material-symbols-outlined text-[28px] filled">verified</span>
+                    <span class="material-symbols-outlined text-[28px]">domain</span>
                 </div>
                 <div>
-                    <p class="text-sm font-semibold text-slate-500 mb-0.5">강사풀선정강사</p>
-                    <p class="text-2xl font-bold text-slate-800 group-hover:scale-105 origin-left transition-transform">1,302<span class="text-sm font-medium text-slate-500 ml-1">명</span></p>
+                    <p class="text-sm font-semibold text-slate-500 mb-0.5">사업장지원교육</p>
+                    <p class="text-2xl font-bold text-slate-800 group-hover:scale-105 origin-left transition-transform">3<span class="text-sm font-medium text-slate-500 ml-1">건</span></p>
                 </div>
             </div>
-            <button class="px-3 py-1.5 bg-white text-slate-600 text-xs font-bold rounded border border-slate-200 hover:bg-slate-800 hover:text-white transition-all shadow-sm">명단보기 ></button>
+            <button class="px-3 py-1.5 bg-white text-slate-600 text-xs font-bold rounded border border-slate-200 hover:bg-slate-800 hover:text-white transition-all shadow-sm">현황보기 ></button>
         </div>
         <div class="card p-5 flex items-center justify-between group hover:border-blue-300 transition-colors">
             <div class="flex items-center gap-4">
@@ -291,7 +292,7 @@
                     <span class="material-symbols-outlined text-[28px]">person_add</span>
                 </div>
                 <div>
-                    <p class="text-sm font-semibold text-blue-600 mb-0.5">강사신청(2025)</p>
+                    <p class="text-sm font-semibold text-blue-600 mb-0.5">강사신청</p>
                     <p class="text-2xl font-bold text-blue-700 group-hover:scale-105 origin-left transition-transform">551<span class="text-sm font-medium text-blue-500 ml-1">명</span></p>
                 </div>
             </div>
@@ -496,7 +497,7 @@
         </div>
         
         <div class="overflow-x-auto bg-white">
-            <div class="min-w-[1100px]">
+            <div class="min-w-[1200px]">
                 <table class="w-full text-left border-collapse">
                     <thead class="bg-slate-50/80 text-slate-500 text-[11px] uppercase tracking-wider font-bold sticky top-0 z-10">
                         <tr>
@@ -509,6 +510,7 @@
                             <th class="px-6 py-4 border-b border-slate-100 text-center w-24">교육문의</th>
                             <th class="px-6 py-4 border-b border-slate-100 text-center w-24">외출외박</th>
                             <th class="px-6 py-4 border-b border-slate-100 text-center w-24">성적이의</th>
+                            <th class="px-6 py-4 border-b border-slate-100 text-center w-24">수료처리</th>
                         </tr>
                     </thead>
                 </table>
@@ -526,6 +528,7 @@
                                 <td class="px-6 py-4 text-center w-24"><span class="px-2 py-0.5 bg-rose-50 text-rose-500 rounded text-[11px] font-bold">2</span></td>
                                 <td class="px-6 py-4 text-center w-24 font-bold text-slate-300">0</td>
                                 <td class="px-6 py-4 text-center w-24 font-bold text-slate-300">0</td>
+                                <td class="px-6 py-4 text-center w-24 font-bold text-slate-300">0</td>
                             </tr>
                             <!-- Row 2 -->
                             <tr class="hover:bg-blue-50/30 transition-colors">
@@ -538,6 +541,7 @@
                                 <td class="px-6 py-4 text-center w-24 font-bold text-blue-500">0</td>
                                 <td class="px-6 py-4 text-center w-24 font-bold text-slate-300">0</td>
                                 <td class="px-6 py-4 text-center w-24 font-bold text-slate-300">0</td>
+                                <td class="px-6 py-4 text-center w-24 font-bold text-indigo-500">25</td>
                             </tr>
                             <!-- Dummy Rows for Scrolling -->
                             <tr class="hover:bg-blue-50/30 transition-colors">
@@ -550,6 +554,7 @@
                                 <td class="px-6 py-4 text-center w-24 font-bold text-blue-500">3</td>
                                 <td class="px-6 py-4 text-center w-24 font-bold text-slate-300">0</td>
                                 <td class="px-6 py-4 text-center w-24 font-bold text-slate-300">0</td>
+                                <td class="px-6 py-4 text-center w-24 font-bold text-indigo-500">8</td>
                             </tr>
                             <tr class="hover:bg-blue-50/30 transition-colors">
                                 <td class="px-6 py-4 w-16 font-medium text-slate-400">4</td>
@@ -559,6 +564,7 @@
                                 <td class="px-6 py-4 text-center w-24 font-bold text-blue-500">45</td>
                                 <td class="px-6 py-4 text-center w-24 font-bold text-slate-300">2</td>
                                 <td class="px-6 py-4 text-center w-24 font-bold text-blue-500">0</td>
+                                <td class="px-6 py-4 text-center w-24 font-bold text-slate-300">0</td>
                                 <td class="px-6 py-4 text-center w-24 font-bold text-slate-300">0</td>
                                 <td class="px-6 py-4 text-center w-24 font-bold text-slate-300">0</td>
                             </tr>
@@ -572,6 +578,7 @@
                                 <td class="px-6 py-4 text-center w-24 font-bold text-blue-500">1</td>
                                 <td class="px-6 py-4 text-center w-24 font-bold text-slate-300">0</td>
                                 <td class="px-6 py-4 text-center w-24 font-bold text-slate-300">0</td>
+                                <td class="px-6 py-4 text-center w-24"><span class="px-2 py-0.5 bg-indigo-50 text-indigo-500 rounded text-[11px] font-bold">33</span></td>
                             </tr>
                             <tr class="hover:bg-blue-50/30 transition-colors">
                                 <td class="px-6 py-4 w-16 font-medium text-slate-400">6</td>
@@ -583,6 +590,7 @@
                                 <td class="px-6 py-4 text-center w-24 font-bold text-blue-500">12</td>
                                 <td class="px-6 py-4 text-center w-24 font-bold text-slate-300">0</td>
                                 <td class="px-6 py-4 text-center w-24 font-bold text-slate-300">0</td>
+                                <td class="px-6 py-4 text-center w-24 font-bold text-indigo-500">12</td>
                             </tr>
                         </tbody>
                     </table>

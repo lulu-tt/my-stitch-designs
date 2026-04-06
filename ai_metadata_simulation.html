@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>AI 메타데이터 추출 시뮬레이션</title>
+    <style>
+        body { font-family: 'Malgun Gothic', sans-serif; background: #f0f2f5; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; }
+        .cms-window { width: 800px; background: white; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.15); overflow: hidden; border: 1px solid #d1d9e6; }
+        .header { background: #1a73e8; color: white; padding: 15px 20px; font-weight: bold; font-size: 1.2em; }
+        .content { padding: 30px; }
+        .canvas-container { position: relative; border: 2px dashed #cbd5e0; border-radius: 10px; background: #fafafa; margin-bottom: 20px; }
+        canvas { display: block; cursor: crosshair; }
+        .result-panel { background: #e8f0fe; border-left: 5px solid #1a73e8; padding: 15px; display: none; animation: fadeIn 0.5s; }
+        .btn-group { text-align: center; margin-top: 20px; }
+        button { background: #1a73e8; color: white; border: none; padding: 12px 30px; border-radius: 25px; font-size: 1em; cursor: pointer; transition: 0.3s; }
+        button:hover { background: #1557b0; transform: translateY(-2px); }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        .tag { display: inline-block; background: #fff; padding: 3px 10px; border-radius: 15px; margin-right: 5px; font-size: 0.9em; color: #1a73e8; border: 1px solid #1a73e8; }
+    </style>
+</head>
+<body>
+
+<div class="cms-window">
+    <div class="header">Smart CMS - AI 자동 분석 엔진 v1.0</div>
+    <div class="content">
+        <div class="canvas-container">
+            <canvas id="aiCanvas" width="740" height="250"></canvas>
+        </div>
+
+        <div id="resultPanel" class="result-panel">
+            <h4 style="margin-top:0;">[AI 분석 결과]</h4>
+            <p><strong>요약:</strong> 본 자료는 2026년도 소상공인 대상 고용보험료 지원사업 공고로, 1인 자영업자의 사회안전망 강화를 위해 보험료의 최대 80%를 환급해주는 정책입니다.</p>
+            <p><strong>주요 키워드:</strong> <span class="tag">#고용보험</span> <span class="tag">#소상공인</span> <span class="tag">#환급지원</span> <span class="tag">#자영업자</span></p>
+            <p><strong>추천 대상자:</strong> <span style="color:#d93025; font-weight:bold;">1인 소상공인 및 고용보험 가입 자영업자</span></p>
+        </div>
+
+        <div class="btn-group">
+            <button onclick="startAnalysis()">첨부파일 AI 분석 실행</button>
+        </div>
+    </div>
+</div>
+
+<script>
+    const canvas = document.getElementById('aiCanvas');
+    const ctx = canvas.getContext('2d');
+    let isAnalyzing = false;
+    let particles = [];
+
+    // 배경 그리기
+    function drawBase() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        
+        // 원본 데이터 영역
+        ctx.strokeStyle = '#999';
+        ctx.setLineDash([5, 5]);
+        ctx.strokeRect(50, 50, 180, 150);
+        ctx.fillStyle = '#666';
+        ctx.textAlign = 'center';
+        ctx.font = '14px Arial';
+        ctx.fillText('Hwp/Pdf/Text Data', 140, 130);
+
+        // AI Core 영역
+        const centerX = 550, centerY = 125;
+        const gradient = ctx.createRadialGradient(centerX, centerY, 5, centerX, centerY, 60);
+        gradient.addColorStop(0, '#4285f4');
+        gradient.addColorStop(1, '#1a73e8');
+        
+        ctx.beginPath();
+        ctx.arc(centerX, centerY, 60, 0, Math.PI * 2);
+        ctx.fillStyle = gradient;
+        ctx.shadowBlur = isAnalyzing ? 30 : 5;
+        ctx.shadowColor = '#4285f4';
+        ctx.fill();
+        ctx.shadowBlur = 0;
+        
+        ctx.fillStyle = 'white';
+        ctx.fillText('AI ENGINE', centerX, centerY + 5);
+    }
+
+    function createParticle() {
+        if(particles.length < 50) {
+            particles.push({
+                x: 180, y: 70 + Math.random() * 110,
+                targetX: 500, targetY: 125,
+                size: Math.random() * 4 + 1,
+                speed: Math.random() * 0.08 + 0.03
+            });
+        }
+    }
+
+    function animate() {
+        drawBase();
+        if(isAnalyzing) {
+            createParticle();
+            particles.forEach((p, index) => {
+                p.x += (p.targetX - p.x) * p.speed;
+                p.y += (p.targetY - p.y) * p.speed;
+                
+                ctx.beginPath();
+                ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+                ctx.fillStyle = 'rgba(26, 115, 232, 0.6)';
+                ctx.fill();
+
+                if(Math.abs(p.x - p.targetX) < 5) particles.splice(index, 1);
+            });
+        }
+        requestAnimationFrame(animate);
+    }
+
+    function startAnalysis() {
+        if(isAnalyzing) return;
+        isAnalyzing = true;
+        document.getElementById('resultPanel').style.display = 'none';
+        
+        // 3초간 분석 애니메이션 후 결과 노출
+        setTimeout(() => {
+            isAnalyzing = false;
+            particles = [];
+            document.getElementById('resultPanel').style.display = 'block';
+        }, 3000);
+    }
+
+    animate();
+</script>
+
+</body>
+</html>
